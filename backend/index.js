@@ -1,5 +1,6 @@
 require("dotenv").config();
 
+
 const config = require("./config.json");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
@@ -20,6 +21,7 @@ mongoose.connect(config.connectionString);
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: "*" }));
+
 
 // Create Account
 app.post("/create-account", async (req, res) => {
@@ -363,5 +365,7 @@ app.get("/travel-stories/filter", authenticateToken, async (req, res) => {
   }
 });
 
-app.listen(8000);
+app.listen(8000, () => {
+  console.log(`Server is running at port 8000`);
+});
 module.exports = app;
