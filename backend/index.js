@@ -16,7 +16,7 @@ const { authenticateToken } = require("./utilities");
 const User = require("./models/user.model");
 const TravelStory = require("./models/travelStory.model");
 
-mongoose.connect(config.connectionString);
+mongoose.connect("mongodb+srv://gnuhq26:buiquanghung2608@travelstory.qyugc.mongodb.net/?retryWrites=true&w=majority&appName=travelstory");
 
 const app = express();
 app.use(express.json());
@@ -125,7 +125,7 @@ app.post("/image-upload", upload.single("image"), async (req, res) => {
         .json({ error: true, message: "No image uploaded" });
     }
 
-    const imageUrl = `http://localhost:8000/uploads/${req.file.filename}`;
+    const imageUrl = `https://travel-story-server.vercel.app/uploads/${req.file.filename}`;
 
     res.status(200).json({ imageUrl });
   } catch (error) {
