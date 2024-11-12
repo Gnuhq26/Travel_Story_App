@@ -3,7 +3,7 @@ require("dotenv").config();
 
 const config = require("./config.json");
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const express = require("express");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
@@ -16,7 +16,7 @@ const { authenticateToken } = require("./utilities");
 const User = require("./models/user.model");
 const TravelStory = require("./models/travelStory.model");
 
-mongoose.connect("mongodb+srv://gnuhq26:buiquanghung2608@travelstory.qyugc.mongodb.net/?retryWrites=true&w=majority&appName=travelstory");
+mongoose.connect(process.env.MONGO_URI);
 
 const app = express();
 app.use(express.json());
@@ -125,7 +125,7 @@ app.post("/image-upload", upload.single("image"), async (req, res) => {
         .json({ error: true, message: "No image uploaded" });
     }
 
-    const imageUrl = `https://${req.headers.host}/uploads/${req.file.filename}`;
+    const imageUrl = `http://localhost:8000/uploads/${req.file.filename}`;
 
     res.status(200).json({ imageUrl });
   } catch (error) {
@@ -239,7 +239,7 @@ app.put("/edit-story/:id", authenticateToken, async (req, res) => {
         .json({ error: true, message: "Travel story not found" });
     }
 
-    const placeholderImgUrl = `https://${req.headers.host}/assets/placeholder.png`;
+    const placeholderImgUrl = `http://localhost:8000/assets/placeholder.png`;
 
     travelStory.title = title;
     travelStory.story = story;
