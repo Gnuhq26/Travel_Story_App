@@ -1,5 +1,6 @@
 require("dotenv").config();
 
+const config = require("./config.json")
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const express = require("express");
@@ -14,7 +15,7 @@ const { authenticateToken } = require("./utilities");
 const User = require("./models/user.model");
 const TravelStory = require("./models/travelStory.model");
 
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(config.connectionString);
 
 const app = express();
 app.use(express.json());
