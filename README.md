@@ -45,7 +45,7 @@ Travel Story App is a platform where users can capture and share their travel ex
     - Replace `<password>` in the connection string with the your user’s password
 
 4. Configure environment variables:
-    - Create a .env file in the ``backend` folder
+    - Create a .env file in the `backend` folder
     - Add the necessary environment variables (e.g., database connection details)
 
 5. Start the server by running:
