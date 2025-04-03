@@ -44,11 +44,15 @@ Travel Story App is a platform where users can capture and share their travel ex
     - Copy the `connection string` and paste the `connection string` inside `config.json` file
     - Replace `<password>` in the connection string with the your user’s password
 
-4. Start the server by running:
+4. Configure environment variables:
+    - Create a .env file in the ``backend` folder
+    - Add the necessary environment variables (e.g., database connection details)
+
+5. Start the server by running:
     ```bash
     npm start
     ```
-5. Open the `frontend folder`:
+6. Open the `frontend` folder:
     - Navigate to the `frontend/travel-story-app` folder.
     - Run the following command to install the required dependencies: 
         ```bash
