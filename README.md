@@ -39,7 +39,7 @@ Travel Story App is a platform where users can capture and share their travel ex
     - Go to https://www.mongodb.com/
     - Login or Create an Account
     - Create a project and create a new database
-    - AAdd a connection IP address. I usually select `Allow Access from Where` option and create a database user
+    - Add a connection IP address. I usually select `Allow Access from Where` option and create a database user
     - In the Next step, Select `Drivers` option to access the atlas database using our Node.js project
     - Copy the `connection string` and paste the `connection string` inside `config.json` file
     - Replace `<password>` in the connection string with the your user’s password
